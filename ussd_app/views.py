@@ -1,12 +1,13 @@
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from ussd_app.models import UserProfile
+from django.conf import settings
 import africastalking
 
 # Create your views here
 
 username = 'sandbox'
-api_key = '6a50b3ee10d26c2680c5d0d7ca1ba858d588ff7d553eee392afd04aa22c0f3e1'
+api_key = settings.AFRICSTALKING_API_KEY
 
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
